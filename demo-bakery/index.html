@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crust Bakery | Fresh Bread &amp; Pastries Daily</title>
+<meta name="description" content="Golden Crust Bakery: fresh bread, cakes and pastries baked every morning. Order custom cakes online or visit us downtown.">
+<style>
+  :root{--brown:#5a3a22;--gold:#e0a63a;--cream:#fff8ee;--ink:#2b1d12}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;background:rgba(255,248,238,.95);border-bottom:1px solid #ead9c0;z-index:10}
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-size:1.4rem;font-weight:bold;color:var(--brown);text-decoration:none}
+  .logo span{color:var(--gold)}
+  nav ul{display:flex;gap:26px;list-style:none;font-family:Arial,sans-serif;font-size:.95rem}
+  nav ul a{text-decoration:none}
+  .btn{display:inline-block;background:var(--brown);color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;font-family:Arial,sans-serif;font-weight:bold}
+  .btn.alt{background:var(--gold);color:var(--ink)}
+  .hero{background:linear-gradient(135deg,#6b4428,#3b2414);color:#fff;padding:110px 0 120px;text-align:center}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:16px}
+  .hero p{font-size:1.2rem;opacity:.9;max-width:620px;margin:0 auto 32px}
+  .hero .btn{margin:6px}
+  section{padding:80px 0}
+  h2{font-size:2.1rem;color:var(--brown);text-align:center;margin-bottom:10px}
+  .sub{text-align:center;color:#7a6250;margin-bottom:44px;font-family:Arial,sans-serif}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+  .card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 4px 18px rgba(90,58,34,.08);text-align:center}
+  .card .icon{font-size:3rem;margin-bottom:10px}
+  .card h3{color:var(--brown);margin-bottom:6px}
+  .price{color:var(--gold);font-weight:bold;font-family:Arial,sans-serif;margin-top:10px}
+  .about{background:#fff}
+  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .about .art{font-size:9rem;text-align:center;background:var(--cream);border-radius:20px;padding:40px}
+  .about h2{text-align:left}
+  .about p{margin-bottom:14px}
+  .reviews .card{text-align:left;font-style:italic}
+  .stars{color:var(--gold);font-style:normal;margin-bottom:8px}
+  .who{font-style:normal;font-weight:bold;margin-top:12px;font-family:Arial,sans-serif;font-size:.9rem}
+  .visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .info{background:#fff;border-radius:16px;padding:32px}
+  .info h3{color:var(--brown);margin:14px 0 6px}
+  table{width:100%;font-family:Arial,sans-serif}
+  td{padding:4px 0}
+  td:last-child{text-align:right}
+  form{display:flex;flex-direction:column;gap:12px}
+  input,textarea,select{padding:12px;border:1px solid #d9c4a6;border-radius:10px;font:inherit;font-family:Arial,sans-serif}
+  footer{background:var(--ink);color:#d9c4a6;text-align:center;padding:30px 0;font-family:Arial,sans-serif;font-size:.9rem}
+  .call{position:fixed;right:18px;bottom:18px;display:none}
+  @media(max-width:760px){
+    nav ul{display:none}
+    .about .wrap,.visit .wrap{grid-template-columns:1fr}
+    .call{display:inline-block}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <a href="#" class="logo">Golden <span>Crust</span></a>
+    <ul><li><a href="#menu">Menu</a></li><li><a href="#about">Our Story</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit</a></li></ul>
+    <a href="#visit" class="btn">Order a Cake</a>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Baked Fresh Every Morning</h1>
+    <p>Sourdough, croissants and custom cakes made by hand in the heart of downtown since 2009.</p>
+    <a href="#menu" class="btn alt">See Our Menu</a>
+    <a href="tel:+15550123456" class="btn" style="background:transparent;border:2px solid #fff">Call (555) 012-3456</a>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <h2>Customer Favorites</h2>
+    <p class="sub">Everything is made from scratch, every day.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">🍞</div><h3>Country Sourdough</h3><p>48-hour fermented, crackling crust.</p><div class="price">$7.50</div></div>
+      <div class="card"><div class="icon">🥐</div><h3>Butter Croissant</h3><p>Flaky, golden, made with French butter.</p><div class="price">$3.75</div></div>
+      <div class="card"><div class="icon">🎂</div><h3>Custom Cakes</h3><p>Birthdays, weddings and every celebration.</p><div class="price">From $45</div></div>
+      <div class="card"><div class="icon">🍪</div><h3>Cookie Box</h3><p>A dozen mixed cookies, perfect for sharing.</p><div class="price">$18.00</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="art">👩‍🍳</div>
+    <div>
+      <h2>Our Story</h2>
+      <p>Golden Crust started with one oven and a family sourdough recipe. Fifteen years later we still bake every loaf by hand, starting at 4 a.m., so the shelves are full when you walk in.</p>
+      <p>We use local flour, real butter and no shortcuts. Thank you for keeping a neighborhood bakery alive.</p>
+      <a href="#visit" class="btn">Come Say Hello</a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="reviews">
+  <div class="wrap">
+    <h2>What Our Neighbors Say</h2>
+    <p class="sub">4.9 stars from 300+ reviews</p>
+    <div class="grid">
+      <div class="card"><div class="stars">★★★★★</div>"The best croissant I've had outside of Paris. We stop here every Saturday."<div class="who">Sample review</div></div>
+      <div class="card"><div class="stars">★★★★★</div>"They made our wedding cake and it was perfect. Beautiful and delicious."<div class="who">Sample review</div></div>
+      <div class="card"><div class="stars">★★★★★</div>"Friendly staff and the sourdough is worth the trip across town."<div class="who">Sample review</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="visit">
+  <div class="wrap">
+    <div class="info">
+      <h2 style="text-align:left">Visit Us</h2>
+      <h3>📍 Address</h3><p>123 Main Street, Your Town</p>
+      <h3>📞 Phone</h3><p><a href="tel:+15550123456">(555) 012-3456</a></p>
+      <h3>🕒 Hours</h3>
+      <table>
+        <tr><td>Monday–Friday</td><td>6:30 am – 6:00 pm</td></tr>
+        <tr><td>Saturday</td><td>7:00 am – 5:00 pm</td></tr>
+        <tr><td>Sunday</td><td>8:00 am – 2:00 pm</td></tr>
+      </table>
+    </div>
+    <div class="info">
+      <h2 style="text-align:left">Order a Custom Cake</h2>
+      <p class="sub" style="text-align:left;margin-bottom:20px">Tell us about your event and we'll reply within a day.</p>
+      <form onsubmit="event.preventDefault();this.innerHTML='<p><b>Thank you!</b> We\'ll be in touch within 24 hours.</p>'">
+        <input required placeholder="Your name">
+        <input required type="tel" placeholder="Phone number">
+        <select><option>Birthday cake</option><option>Wedding cake</option><option>Other event</option></select>
+        <input type="date">
+        <textarea rows="3" placeholder="Flavors, size, design ideas…"></textarea>
+        <button class="btn" type="submit" style="border:0;cursor:pointer">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Golden Crust Bakery (demo website) · Built by [Your Name] Web Design</footer>
+<a href="tel:+15550123456" class="btn alt call">📞 Call Now</a>
+</body>
+</html>

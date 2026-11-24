@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KREMÓVA — авторські десерти біля Бессарабського ринку, Київ</title>
+<meta name="description" content="KREMÓVA — сімейна кондитерська в центрі Києва. Авторські торти, бенто-тортики, макаруни, рулети та солодкі бокси. Сніданки весь день.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --cream:#fdf7f2;--paper:#fffaf6;--blush:#f7d9d3;--rose:#e0858f;--raspberry:#c2405a;
+ --pistachio:#c9dcae;--lemon:#f6e3a1;--lavender:#d9cdee;--cocoa:#2e1d18;--choc:#4a2e26;--muted:#8b7069
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Manrope,Arial,sans-serif;color:var(--cocoa);background:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600}
+em{font-style:italic;color:var(--raspberry)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hand{font-family:Caveat,cursive;color:var(--raspberry);font-size:1.6rem}
+
+/* demo bar + nav */
+.demo{background:var(--cocoa);color:#f7d9d3;text-align:center;font-size:.8rem;padding:7px 10px;letter-spacing:.02em}
+header{position:sticky;top:0;z-index:50;transition:.3s}
+header.scrolled{background:rgba(253,247,242,.9);backdrop-filter:blur(10px);box-shadow:0 1px 0 #f0e2d9}
+nav{display:flex;justify-content:space-between;align-items:center;height:78px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;letter-spacing:.22em;text-decoration:none}
+nav ul{display:flex;gap:32px;list-style:none;font-weight:500;font-size:.95rem}
+nav ul a{text-decoration:none;position:relative}
+nav ul a:after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--raspberry);transition:.3s}
+nav ul a:hover:after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--cocoa);color:#fff;padding:15px 30px;border-radius:50px;text-decoration:none;font:700 .95rem Manrope,sans-serif;border:0;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(46,29,24,.25)}
+.btn.rasp{background:var(--raspberry)}
+.btn.ghost{background:transparent;color:var(--cocoa);border:1.5px solid var(--cocoa)}
+.btn.ghost:hover{background:var(--cocoa);color:#fff}
+
+/* hero */
+.hero{position:relative;padding:40px 0 120px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.7;z-index:-1}
+.b1{width:520px;height:520px;background:var(--blush);right:-120px;top:-80px}
+.b2{width:340px;height:340px;background:var(--pistachio);left:-120px;bottom:0;opacity:.45}
+.b3{width:260px;height:260px;background:var(--lavender);right:30%;bottom:-60px;opacity:.5}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;padding:8px 16px;border-radius:40px;font-size:.82rem;font-weight:700;box-shadow:0 6px 20px rgba(46,29,24,.06);margin-bottom:26px}
+.badge i{width:8px;height:8px;border-radius:50%;background:#5bb86a;box-shadow:0 0 0 4px #5bb86a33;animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px #5bb86a00}}
+.hero h1{font-size:clamp(3rem,7vw,6rem);line-height:.95;letter-spacing:-.01em;margin-bottom:26px}
+.hero h1 em{font-weight:500}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:480px;margin-bottom:36px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero .hand{display:block;margin-top:26px;transform:rotate(-3deg)}
+
+.stage{position:relative;height:560px}
+.plate{position:absolute;inset:40px 20px 20px 40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#fbe8e3 60%,#f3cfc7);box-shadow:inset 0 -20px 50px rgba(194,64,90,.12),0 40px 80px rgba(46,29,24,.12)}
+.ring{position:absolute;inset:0;border:1.5px dashed #e0858f66;border-radius:50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{position:absolute;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 18px 20px rgba(46,29,24,.18))}
+@keyframes bob{50%{transform:translateY(-16px) rotate(3deg)}}
+.f-cake{width:300px;left:50%;top:50%;transform:translate(-50%,-48%);animation:none}
+.f-m1{width:110px;left:2%;top:12%;animation-delay:-1s}
+.f-m2{width:90px;right:4%;top:6%;animation-delay:-3s}
+.f-m3{width:100px;right:0;bottom:16%;animation-delay:-2s}
+.f-m4{width:76px;left:8%;bottom:10%;animation-delay:-4s}
+.sticker{position:absolute;left:-10px;top:44%;background:var(--cocoa);color:#fff;width:118px;height:118px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;transform:rotate(-12deg);box-shadow:0 14px 30px rgba(46,29,24,.25)}
+.sticker b{font-family:'Cormorant Garamond',serif;font-size:2.1rem;letter-spacing:0;line-height:1}
+
+/* marquee */
+.marquee{background:var(--raspberry);color:#fff;overflow:hidden;padding:18px 0;transform:rotate(-1.5deg);margin:-30px -20px 0;position:relative;z-index:5}
+.track{display:flex;gap:40px;white-space:nowrap;animation:scroll 28s linear infinite;font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-style:italic}
+.track span:nth-child(even){font-style:normal;opacity:.7}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:110px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 60px}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--raspberry);margin-bottom:12px}
+h2{font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.02;margin-bottom:14px}
+.head p{color:var(--muted)}
+
+/* dessert cards */
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{border-radius:28px;padding:26px 20px 24px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.8,.2,1);cursor:default;min-height:330px;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-10px) rotate(-1deg)}
+.card svg{width:100%;height:150px;margin:6px 0 18px;transition:.5s}
+.card:hover svg{transform:scale(1.08) rotate(4deg)}
+.card .n{font-size:.75rem;font-weight:800;opacity:.5}
+.card h3{font-size:1.75rem;line-height:1.05;margin-bottom:6px}
+.card p{font-size:.88rem;opacity:.75}
+.c1{background:var(--blush)}.c2{background:var(--pistachio)}.c3{background:var(--lavender)}.c4{background:var(--lemon)}.c5{background:#f1d7c4}
+.center{text-align:center;margin-top:50px}
+
+/* box builder */
+.builder{background:var(--cocoa);color:#fff;border-radius:40px;padding:70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.builder:before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:var(--raspberry);filter:blur(120px);opacity:.35;right:-100px;top:-100px}
+.builder h2{color:#fff}
+.builder p{opacity:.75;margin-bottom:26px}
+.flavors{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.fl{display:flex;align-items:center;gap:8px;background:#ffffff14;border:1px solid #ffffff22;color:#fff;padding:9px 15px 9px 9px;border-radius:40px;cursor:pointer;font:600 .88rem Manrope;transition:.2s}
+.fl:hover{background:#ffffff26;transform:translateY(-2px)}
+.fl i{width:22px;height:22px;border-radius:50%}
+.box{background:linear-gradient(145deg,#fdf1ec,#f6dcd4);border-radius:26px;padding:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.box:before{content:"KREMÓVA";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--raspberry);padding:4px 16px;border-radius:20px;font:700 .72rem Manrope;letter-spacing:.25em}
+.slot{aspect-ratio:1;border-radius:50%;border:2px dashed #e0858f77;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s}
+.slot svg{width:88%;animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(0) rotate(-40deg)}}
+.slot.full{border-color:transparent}
+.count{display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:.9rem;opacity:.85}
+.count button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;font:inherit}
+
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.collage{position:relative;height:520px}
+.ph{position:absolute;border-radius:24px;overflow:hidden;box-shadow:0 30px 50px rgba(46,29,24,.15);display:flex;align-items:flex-end;padding:16px;font-size:.75rem;color:#4a2e26aa;font-weight:600}
+.p1{width:62%;height:78%;left:0;top:0;background:linear-gradient(160deg,#f7d9d3,#e9a9a6)}
+.p2{width:50%;height:56%;right:0;bottom:0;background:linear-gradient(160deg,#e9e0f6,#c7b6e6);transform:rotate(4deg)}
+.p1 svg,.p2 svg{position:absolute;inset:0;margin:auto;width:60%}
+.quote{position:absolute;left:30%;bottom:6%;background:#fff;padding:18px 22px;border-radius:18px;max-width:240px;box-shadow:0 20px 40px rgba(46,29,24,.12);transform:rotate(-3deg);z-index:3}
+.story h2{text-align:left}
+.story p{color:#5e4740;margin-bottom:16px;font-size:1.05rem}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.fact{border-top:2px solid var(--cocoa);padding-top:12px}
+.fact b{font-family:'Cormorant Garamond',serif;font-size:2.4rem;display:block;line-height:1}
+.fact span{font-size:.82rem;color:var(--muted)}
+.todo{background:#fff4c2;border-radius:4px;padding:0 5px}
+
+/* breakfast */
+.bf{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bfc{background:#fff;border-radius:28px;padding:34px;display:flex;gap:18px;align-items:center;transition:.3s}
+.bfc:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(46,29,24,.08)}
+.bfc .e{font-size:2.6rem;width:72px;height:72px;flex:none;border-radius:20px;background:var(--cream);display:flex;align-items:center;justify-content:center}
+.bfc h3{font-size:1.5rem;line-height:1.1}
+.bfc p{font-size:.88rem;color:var(--muted)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:170px;gap:14px}
+.g{border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;position:relative;overflow:hidden;transition:.3s}
+.g:hover{transform:scale(1.03)}
+.g:after{content:"фото з Instagram";position:absolute;bottom:10px;left:12px;font-size:.7rem;font-weight:700;opacity:.45}
+.g1{grid-column:span 2;grid-row:span 2;background:var(--blush);font-size:6rem}
+.g2{background:var(--pistachio)}.g3{background:var(--lemon)}.g4{grid-column:span 2;background:var(--lavender)}
+.g5{grid-column:span 2;background:#f1d7c4}.g6{background:#fde3e7}.g7{background:#e5efd8}
+
+/* order */
+.order{background:linear-gradient(180deg,var(--cream),#f9e6e0)}
+.order .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px}
+.panel{background:#fff;border-radius:32px;padding:44px;box-shadow:0 20px 50px rgba(46,29,24,.06)}
+.panel h3{font-size:2.3rem;line-height:1.05;margin-bottom:8px}
+.panel .muted{color:var(--muted);margin-bottom:26px}
+.types{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.types input{display:none}
+.types label{padding:10px 18px;border-radius:30px;border:1.5px solid #ecd9cf;cursor:pointer;font-weight:600;font-size:.88rem;transition:.2s}
+.types input:checked+label{background:var(--cocoa);color:#fff;border-color:var(--cocoa)}
+form{display:flex;flex-direction:column;gap:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,textarea,select{padding:15px 17px;border:1.5px solid #f0e2d9;border-radius:14px;font:inherit;background:var(--paper);transition:.2s}
+input:focus,textarea:focus{outline:none;border-color:var(--rose);background:#fff}
+.contact{background:var(--cocoa);color:#fff}
+.contact h3{color:#fff}
+.contact dl{margin:20px 0}
+.contact dt{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;opacity:.55;margin-top:20px}
+.contact dd{font-size:1.1rem;font-weight:600}
+.contact a{text-decoration:none;border-bottom:1px solid #ffffff44}
+.map{margin-top:26px;height:150px;border-radius:20px;background:repeating-linear-gradient(45deg,#ffffff08 0 12px,#ffffff12 12px 24px);display:flex;align-items:center;justify-content:center;font-size:.85rem;opacity:.8;border:1px dashed #ffffff33}
+
+footer{background:var(--cocoa);color:#d9c3bb;padding:70px 0 40px;text-align:center}
+footer .big{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,13vw,11rem);letter-spacing:.12em;color:#fff;line-height:1;opacity:.95}
+footer p{margin-top:20px;font-size:.88rem}
+.callbtn{position:fixed;right:16px;bottom:16px;z-index:60;display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:980px){
+ nav ul{display:none}
+ .logo{font-size:1.5rem;letter-spacing:.16em}
+ nav .btn{padding:11px 18px;font-size:.85rem;white-space:nowrap}
+ .hero .wrap,.story .wrap,.order .wrap,.builder{grid-template-columns:1fr}
+ .stage{height:420px}.f-cake{width:230px}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .bf{grid-template-columns:1fr}
+ .builder{padding:44px 26px}
+ .gallery{grid-template-columns:repeat(2,1fr)}.g1,.g4,.g5{grid-column:span 2}
+ .collage{height:420px}
+ .callbtn{display:inline-flex}
+ section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- reusable SVG defs -->
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="mac" viewBox="0 0 120 90">
+   <ellipse cx="60" cy="62" rx="50" ry="20" fill="var(--c2)"/>
+   <rect x="12" y="44" width="96" height="16" rx="8" fill="var(--c3)"/>
+   <ellipse cx="60" cy="34" rx="50" ry="22" fill="var(--c1)"/>
+   <ellipse cx="45" cy="26" rx="16" ry="5" fill="#fff" opacity=".45"/>
+   <path d="M14 46 q6 6 12 0 q6 6 12 0 q6 6 12 0 q6 6 12 0 q6 6 12 0 q6 6 12 0 q6 6 12 0 q6 6 10 0" fill="none" stroke="var(--c2)" stroke-width="3" opacity=".5"/>
+  </symbol>
+ </defs>
+</svg>
+
+<div class="demo">✨ Демо-версія сайту, створена для KREMÓVA · фото та тексти буде замінено на ваші</div>
+<header id="hdr"><div class="wrap"><nav>
+ <a href="#" class="logo">KREMÓVA</a>
+ <ul><li><a href="#desserts">Десерти</a></li><li><a href="#box">Збери бокс</a></li><li><a href="#story">Про нас</a></li><li><a href="#order">Замовлення</a></li></ul>
+ <a class="btn" href="https://kremova.choiceqr.com/delivery" target="_blank" rel="noopener">Замовити →</a>
+</nav></div></header>
+
+<section class="hero" style="padding-top:30px">
+ <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+ <div class="wrap">
+  <div class="rv">
+   <div class="badge"><i></i> вул. Басейна, 1/2 · біля Бессарабки</div>
+   <h1>Десерти, в які <em>закохуються</em> з першого шматочка</h1>
+   <p>Сімейна кондитерська біля Бессарабського ринку. Авторські торти, бенто, макаруни та солодкі бокси, зроблені мамою й донькою з любов'ю.</p>
+   <div class="cta">
+    <a class="btn rasp" href="https://kremova.choiceqr.com/delivery" target="_blank" rel="noopener">Замовити доставку →</a>
+    <a class="btn ghost" href="#order">Торт на замовлення</a>
+   </div>
+   <span class="hand">↳ свіжі десерти щодня!</span>
+  </div>
+  <div class="stage rv">
+   <div class="plate"><div class="ring"></div></div>
+   <!-- cake -->
+   <svg class="float f-cake" viewBox="0 0 300 300">
+    <ellipse cx="150" cy="262" rx="120" ry="18" fill="#2e1d18" opacity=".08"/>
+    <path d="M40 150 h220 v95 a20 20 0 0 1 -20 20 h-180 a20 20 0 0 1 -20 -20z" fill="#f4c7c0"/>
+    <rect x="40" y="185" width="220" height="14" fill="#c2405a" opacity=".85"/>
+    <rect x="40" y="222" width="220" height="10" fill="#fff" opacity=".7"/>
+    <path d="M30 150 q0 -38 120 -38 q120 0 120 38 q0 10 -12 10 q-8 0 -10 14 q-3 14 -14 0 q-6 -10 -18 0 q-10 16 -20 0 q-8 -12 -20 0 q-10 14 -20 0 q-10 -12 -20 0 q-10 14 -20 0 q-10 -12 -20 0 q-10 14 -20 0 q-8 -12 -18 0 q-10 12 -14 -2 q-4 -10 -14 -10 q-10 0 -10 -12z" fill="#fff"/>
+    <circle cx="150" cy="100" r="22" fill="#c2405a"/><path d="M150 78 q4 -14 16 -16" stroke="#4f7a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="143" cy="94" r="5" fill="#fff" opacity=".5"/>
+    <circle cx="90" cy="125" r="11" fill="#e0858f"/><circle cx="210" cy="125" r="11" fill="#e0858f"/>
+    <circle cx="118" cy="118" r="6" fill="#f6e3a1"/><circle cx="182" cy="118" r="6" fill="#c9dcae"/>
+   </svg>
+   <svg class="float f-m1" viewBox="0 0 120 90" style="--c1:#f2a7b3;--c2:#e48c9c;--c3:#fff3e8"><use href="#mac"/></svg>
+   <svg class="float f-m2" viewBox="0 0 120 90" style="--c1:#c9dcae;--c2:#a9c38a;--c3:#fff8e5"><use href="#mac"/></svg>
+   <svg class="float f-m3" viewBox="0 0 120 90" style="--c1:#d9cdee;--c2:#b9a7dc;--c3:#6b3f33"><use href="#mac"/></svg>
+   <svg class="float f-m4" viewBox="0 0 120 90" style="--c1:#f6e3a1;--c2:#e6c96b;--c3:#fff"><use href="#mac"/></svg>
+   <div class="sticker"><b>2025</b>СІМЕЙНА<br>СПРАВА</div>
+  </div>
+ </div>
+</section>
+
+<div style="overflow:hidden;padding:30px 0"><div class="marquee" style="margin:-30px -20px 0"><div class="track">
+ <span>торти</span><span>✦</span><span>бенто-тортики</span><span>✦</span><span>макаруни</span><span>✦</span><span>рулети</span><span>✦</span><span>солодкі бокси</span><span>✦</span><span>сніданки весь день</span><span>✦</span>
+ <span>торти</span><span>✦</span><span>бенто-тортики</span><span>✦</span><span>макаруни</span><span>✦</span><span>рулети</span><span>✦</span><span>солодкі бокси</span><span>✦</span><span>сніданки весь день</span><span>✦</span>
+</div></div></div>
+
+<section id="desserts"><div class="wrap">
+ <div class="head rv"><div class="kicker">Наша вітрина</div><h2>Маленькі <em>шедеври</em> на кожен день</h2><p>Свіжі десерти щодня. Повне меню та ціни дивіться в онлайн-замовленні.</p></div>
+ <div class="cards">
+  <div class="card c1 rv"><span class="n">01</span>
+   <svg viewBox="0 0 160 150"><path d="M25 70 h110 v55 a10 10 0 0 1 -10 10 h-90 a10 10 0 0 1 -10 -10z" fill="#fff"/><rect x="25" y="92" width="110" height="9" fill="#c2405a"/><path d="M20 72 q0 -24 60 -24 q60 0 60 24 q-8 8 -15 0 q-8 10 -15 0 q-8 10 -15 0 q-8 10 -15 0 q-8 10 -15 0 q-8 10 -15 0 q-8 10 -15 0 q-8 8 -15 0z" fill="#c2405a"/><circle cx="80" cy="38" r="12" fill="#e0858f"/><path d="M80 26 q2 -10 10 -10" stroke="#4f7a3a" stroke-width="3" fill="none"/></svg>
+   <h3>Торти</h3><p>Авторські смаки та дизайн для вашого свята.</p></div>
+  <div class="card c2 rv"><span class="n">02</span>
+   <svg viewBox="0 0 160 150"><rect x="30" y="40" width="100" height="90" rx="10" fill="#fff8ef"/><rect x="30" y="40" width="100" height="18" rx="6" fill="#8fae6a"/><circle cx="80" cy="95" r="30" fill="#fde3e7"/><path d="M55 95 q12 -14 25 0 q13 -14 25 0" stroke="#c2405a" stroke-width="3" fill="none"/><text x="80" y="102" text-anchor="middle" font-family="Caveat" font-size="15" fill="#c2405a">love</text></svg>
+   <h3>Бенто-тортики</h3><p>Міні-торт для двох або як подарунок.</p></div>
+  <div class="card c3 rv"><span class="n">03</span>
+   <svg viewBox="0 0 160 150"><g transform="translate(20,20)" style="--c1:#fff;--c2:#e9e0f6;--c3:#9b7fd0"><use href="#mac" width="120" height="90"/></g><g transform="translate(40,62) scale(.8)" style="--c1:#f2a7b3;--c2:#e48c9c;--c3:#fff"><use href="#mac" width="120" height="90"/></g></svg>
+   <h3>Макаруни</h3><p>Ніжні, яскраві, з різними начинками.</p></div>
+  <div class="card c4 rv"><span class="n">04</span>
+   <svg viewBox="0 0 160 150"><rect x="20" y="55" width="100" height="60" rx="30" fill="#fff6dc"/><circle cx="120" cy="85" r="30" fill="#f9eecb"/><path d="M120 85 m-4 0 a4 4 0 1 1 8 0 a10 10 0 1 1 -18 0 a16 16 0 1 1 30 0 a22 22 0 1 1 -40 0" fill="none" stroke="#d9a441" stroke-width="5"/><circle cx="50" cy="52" r="6" fill="#c2405a"/><circle cx="75" cy="50" r="6" fill="#c2405a"/></svg>
+   <h3>Рулети</h3><p>Легкі бісквітні рулети з кремом.</p></div>
+  <div class="card c5 rv"><span class="n">05</span>
+   <svg viewBox="0 0 160 150"><rect x="32" y="62" width="96" height="70" rx="8" fill="#c2405a"/><rect x="26" y="50" width="108" height="20" rx="6" fill="#e0858f"/><rect x="73" y="50" width="14" height="82" fill="#f6e3a1"/><path d="M80 50 q-26 -26 -30 -6 q-2 12 30 6 q32 6 30 -6 q-4 -20 -30 6z" fill="#f6e3a1"/></svg>
+   <h3>Солодкі бокси</h3><p>Готовий подарунок на будь-яку нагоду.</p></div>
+ </div>
+ <div class="center rv"><a class="btn" href="https://kremova.choiceqr.com/delivery" target="_blank" rel="noopener">Дивитись меню та ціни →</a></div>
+</div></section>
+
+<section id="box" style="padding-top:0"><div class="wrap">
+ <div class="builder rv">
+  <div>
+   <div class="kicker" style="color:#f2a7b3">Інтерактив</div>
+   <h2>Збери свій <em style="color:#f2a7b3">бокс</em> макарунів</h2>
+   <p>Натискайте на смаки, щоб наповнити коробку. Ідеальний подарунок, який можна замовити заздалегідь.</p>
+   <div class="flavors" id="flavors"></div>
+   <a class="btn rasp" href="#order" id="boxcta">Замовити такий бокс →</a>
+  </div>
+  <div>
+   <div class="box" id="boxgrid"></div>
+   <div class="count"><span id="cnt">0 / 9 макарунів</span><button id="clr">очистити</button></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="story" class="story" style="padding-top:20px"><div class="wrap">
+ <div class="collage rv">
+  <div class="ph p1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" opacity=".35"/><text x="50" y="62" text-anchor="middle" font-size="40">👩‍🍳</text></svg>фото мами й доньки</div>
+  <div class="ph p2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" opacity=".35"/><text x="50" y="62" text-anchor="middle" font-size="40">🧁</text></svg>фото інтер'єру</div>
+  <div class="quote"><span class="hand" style="font-size:1.35rem">«[тут буде ваша цитата]»</span></div>
+ </div>
+ <div class="rv">
+  <div class="kicker">Наша історія</div>
+  <h2>Мама, донька та <em>трохи магії</em></h2>
+  <p>KREMÓVA відкрилася у 2025 році як сімейний проєкт. Ми мріяли про затишне місце в самому серці Києва, де кожен десерт зроблений вручну, з увагою до смаку й деталей.</p>
+  <p><span class="todo">[Тут додамо кілька речень про вашу історію, улюблені рецепти та інгредієнти.]</span></p>
+  <div class="facts">
+   <div class="fact"><b>2025</b><span>рік відкриття</span></div>
+   <div class="fact"><b>5</b><span>видів десертів</span></div>
+   <div class="fact"><b>2</b><span>покоління кондитерів</span></div>
+  </div>
+ </div>
+</div></section>
+
+<section style="background:#fff"><div class="wrap">
+ <div class="head rv"><div class="kicker">Весь день</div><h2>Сніданки, <em>коли зручно</em></h2><p>Не тільки солодке. Заходьте на каву та сніданок у будь-який час.</p></div>
+ <div class="bf">
+  <div class="bfc rv"><div class="e">🥞</div><div><h3>Сирники</h3><p>Ніжні, рум'яні, зі сметаною та ягодами.</p></div></div>
+  <div class="bfc rv"><div class="e">🥪</div><div><h3>Сендвічі</h3><p>Ситні сендвічі на свіжому хлібі.</p></div></div>
+  <div class="bfc rv"><div class="e">☕</div><div><h3>Кава</h3><p>Ідеальна пара до будь-якого десерту.</p></div></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="head rv"><div class="kicker">@kremova</div><h2>Солодкий <em>Instagram</em></h2><p>Тут з'являтимуться ваші найкращі фото.</p></div>
+ <div class="gallery rv">
+  <div class="g g1">🎂</div><div class="g g2">🍰</div><div class="g g3">🍋</div><div class="g g4">🧁</div>
+  <div class="g g5">🍓</div><div class="g g6">🎀</div><div class="g g7">🍵</div>
+ </div>
+</div></section>
+
+<section id="order" class="order"><div class="wrap">
+ <div class="panel rv">
+  <div class="kicker">Індивідуальне замовлення</div>
+  <h3>Торт вашої <em>мрії</em></h3>
+  <p class="muted">Розкажіть про свято, і ми зв'яжемося, щоб обговорити смак і дизайн.</p>
+  <form id="f">
+   <div class="types">
+    <input type="radio" name="t" id="t1" checked><label for="t1">🎂 Торт</label>
+    <input type="radio" name="t" id="t2"><label for="t2">🍱 Бенто</label>
+    <input type="radio" name="t" id="t3"><label for="t3">🎁 Бокс</label>
+    <input type="radio" name="t" id="t4"><label for="t4">🌸 Макаруни</label>
+   </div>
+   <div class="row"><input required placeholder="Ваше ім'я"><input required type="tel" placeholder="Телефон"></div>
+   <div class="row"><input type="date"><input placeholder="Кількість гостей"></div>
+   <textarea rows="4" id="note" placeholder="Смак, кольори, напис, ідеї дизайну…"></textarea>
+   <button class="btn rasp" type="submit" style="justify-content:center">Надіслати запит →</button>
+  </form>
+ </div>
+ <div class="panel contact rv">
+  <h3>Приходьте <em style="color:#f2a7b3">в гості</em></h3>
+  <dl>
+   <dt>Адреса</dt><dd>вул. Басейна, 1/2, Київ<br><span style="opacity:.6;font-weight:400;font-size:.9rem">біля Бессарабського ринку</span></dd>
+   <dt>Телефон</dt><dd><a href="tel:+380937477670">+38 (093) 747-76-70</a></dd>
+   <dt>Графік</dt><dd><span class="todo" style="color:var(--cocoa)">[ваш графік роботи]</span></dd>
+   <dt>Доставка</dt><dd><a href="https://kremova.choiceqr.com/delivery" target="_blank" rel="noopener">Замовити онлайн →</a></dd>
+  </dl>
+  <div class="map">📍 тут буде карта Google</div>
+ </div>
+</div></section>
+
+<footer>
+ <div class="big">KREMÓVA</div>
+ <p>© 2026 KREMÓVA · Кондитерська, Київ · вул. Басейна, 1/2</p>
+</footer>
+<a class="btn rasp callbtn" href="tel:+380937477670">📞 Подзвонити</a>
+
+<script>
+// sticky header
+addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('scrolled',scrollY>20));
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*80+'ms';io.observe(el)});
+// macaron box builder
+const F=[['Малина','#f2a7b3','#e48c9c','#fff3e8'],['Фісташка','#c9dcae','#a9c38a','#fff8e5'],['Лаванда','#d9cdee','#b9a7dc','#6b3f33'],['Лимон','#f6e3a1','#e6c96b','#fff'],['Шоколад','#8a5a4a','#6b3f33','#f2d6c9'],['Ваніль','#fbf0de','#eadbc0','#c2405a']];
+const box=document.getElementById('boxgrid'),fl=document.getElementById('flavors'),cnt=document.getElementById('cnt');
+let items=[];
+function draw(){box.innerHTML='';for(let i=0;i<9;i++){const s=document.createElement('div');s.className='slot'+(items[i]?' full':'');
+ if(items[i]){const f=items[i];s.innerHTML=`<svg viewBox="0 0 120 90" style="--c1:${f[1]};--c2:${f[2]};--c3:${f[3]}"><use href="#mac"/></svg>`;s.title='Прибрати';s.onclick=()=>{items.splice(i,1);draw()}}
+ box.appendChild(s)}
+ cnt.textContent=items.length+' / 9 макарунів'+(items.length===9?' · бокс готовий! 🎉':'')}
+F.forEach(f=>{const b=document.createElement('button');b.className='fl';b.innerHTML=`<i style="background:${f[1]}"></i>${f[0]}`;b.onclick=()=>{if(items.length<9){items.push(f);draw()}};fl.appendChild(b)});
+document.getElementById('clr').onclick=()=>{items=[];draw()};
+[0,1,2,3].forEach(i=>items.push(F[i]));draw();
+document.getElementById('boxcta').onclick=()=>{document.getElementById('t4').checked=true;if(items.length)document.getElementById('note').value='Бокс макарунів: '+items.map(f=>f[0]).join(', ')};
+// form
+document.getElementById('f').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-size:3rem">💌</div><h3 style="font-size:2rem">Дякуємо!</h3><p class="muted">Ми зв\'яжемося з вами найближчим часом.</p></div>'};
+</script>
+</body>
+</html>
